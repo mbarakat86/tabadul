@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تبادل — خبرة حقيقية، وجهاً لوجه</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E9E2D5; --surface:#FBF8F2; --surface-2:#F3EEE3;
+  --ink:#201C16; --muted:#6E6657;
+  --primary:#0F6B62; --primary-deep:#0A4E47; --primary-soft:#DCEBE8;
+  --accent:#E0A33E; --accent-soft:#F7E9CE;
+  --rose:#8A4A63; --rose-soft:#F0E0E8; --line:#E2DACB;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'IBM Plex Sans Arabic',system-ui,sans-serif;
+  background:var(--bg); color:var(--ink);
+  -webkit-font-smoothing:antialiased; line-height:1.75; overflow-x:hidden;
+}
+.wrap{max-width:560px;margin:0 auto;padding:0 22px}
+section{padding:74px 0;position:relative}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:2px;color:var(--accent);margin-bottom:14px}
+h1,h2{font-weight:700;line-height:1.3;letter-spacing:-.5px}
+.lead{color:var(--muted);font-weight:300;font-size:17px;margin-top:14px}
+
+/* seat indicator (signature) */
+.seats{display:inline-flex;gap:7px;vertical-align:middle}
+.seat{width:14px;height:14px;border-radius:50%;border:2px solid var(--primary);background:transparent;display:inline-block}
+.seat.on{background:var(--primary)}
+.seat.gold{border-color:var(--accent);background:var(--accent)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  background:radial-gradient(120% 90% at 80% 0%, #F3EEE3 0%, var(--bg) 55%);text-align:center}
+.logo{display:flex;align-items:center;justify-content:center;gap:11px;margin-bottom:40px}
+.logo svg{width:40px;height:40px}
+.logo span{font-size:30px;font-weight:700;color:var(--primary)}
+.hero h1{font-size:40px}
+.hero h1 .hl{color:var(--primary)}
+.hero .lead{font-size:18px;max-width:420px;margin:18px auto 0}
+.hero .seats{margin-top:42px}
+.scroll-hint{margin-top:54px;color:var(--muted);font-size:13px;font-weight:300;animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+
+/* PROBLEM */
+.problem{background:var(--ink);color:#F3EEE3}
+.problem .eyebrow{color:var(--accent)}
+.problem h2{font-size:30px;color:#FBF8F2}
+.problem .lead{color:#C7BFB0;font-size:17px}
+.pain{display:flex;gap:14px;align-items:flex-start;margin-top:26px}
+.pain .x{flex:none;width:30px;height:30px;border-radius:9px;background:rgba(224,163,62,.16);
+  color:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;margin-top:2px}
+.pain p{font-size:15.5px;color:#D6CEBF;font-weight:300}
+.pain b{color:#FBF8F2;font-weight:600}
+
+/* SOLUTION */
+.sol h2{font-size:30px}
+.sol h2 .hl{color:var(--primary)}
+.pillars{margin-top:34px;display:flex;flex-direction:column;gap:14px}
+.pillar{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;
+  display:flex;gap:16px;align-items:flex-start;box-shadow:0 6px 18px -14px rgba(32,28,22,.3)}
+.pillar .ic{flex:none;width:46px;height:46px;border-radius:13px;background:var(--primary-soft);
+  color:var(--primary-deep);display:flex;align-items:center;justify-content:center}
+.pillar .ic svg{width:23px;height:23px}
+.pillar h3{font-size:17px;font-weight:600;margin-bottom:4px}
+.pillar p{font-size:14px;color:var(--muted);font-weight:300}
+
+/* HOW */
+.how{background:var(--surface-2)}
+.how h2{font-size:30px;text-align:center;margin-bottom:8px}
+.how .sub{text-align:center;color:var(--muted);font-weight:300;margin-bottom:38px}
+.step{display:flex;gap:18px;align-items:flex-start;padding:0 4px;margin-bottom:30px;position:relative}
+.step .n{flex:none;width:42px;height:42px;border-radius:50%;background:var(--primary);color:#fff;
+  font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;z-index:1}
+.step:not(:last-child)::before{content:"";position:absolute;right:20px;top:42px;bottom:-30px;
+  width:2px;background:var(--line)}
+.step h3{font-size:17px;font-weight:600;margin-bottom:3px}
+.step p{font-size:14.5px;color:var(--muted);font-weight:300}
+
+/* SAFETY */
+.safe{text-align:center}
+.safe .ic-wrap{width:64px;height:64px;border-radius:20px;background:var(--primary-soft);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
+.safe .ic-wrap svg{width:32px;height:32px;color:var(--primary)}
+.safe h2{font-size:27px}
+.safe .lead{max-width:430px;margin:14px auto 26px}
+.chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:999px;
+  padding:9px 16px;font-size:13.5px;font-weight:500;color:var(--ink)}
+.chip b{color:var(--primary);font-weight:600}
+
+/* WHO */
+.who h2{font-size:28px;text-align:center;margin-bottom:30px}
+.who h2 .hl{color:var(--primary)}
+.cards2{display:flex;flex-direction:column;gap:16px}
+.who-card{border-radius:20px;padding:24px;color:#fff;position:relative;overflow:hidden}
+.who-card.host{background:linear-gradient(135deg,var(--primary),var(--primary-deep))}
+.who-card.guest{background:linear-gradient(135deg,#8A4A63,#5f3144)}
+.who-card .tag{font-size:12px;font-weight:600;opacity:.85;letter-spacing:1px;margin-bottom:8px}
+.who-card h3{font-size:21px;font-weight:700;margin-bottom:8px}
+.who-card p{font-size:14.5px;font-weight:300;opacity:.92}
+
+/* CTA */
+.cta{text-align:center;background:radial-gradient(120% 90% at 50% 100%, #F3EEE3 0%, var(--bg) 60%)}
+.cta h2{font-size:34px}
+.cta h2 .hl{color:var(--primary)}
+.cta .lead{max-width:400px;margin:16px auto 34px;font-size:17px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--primary);color:#fff;
+  font-family:inherit;font-size:17px;font-weight:600;padding:16px 38px;border:none;border-radius:16px;
+  text-decoration:none;box-shadow:0 14px 30px -12px rgba(15,107,98,.6);transition:transform .15s,background .15s}
+.btn:hover{background:var(--primary-deep);transform:translateY(-2px)}
+.btn svg{width:20px;height:20px}
+.cta .note{margin-top:20px;color:var(--muted);font-size:13px;font-weight:300}
+.cta .seats{margin-top:40px}
+.foot{text-align:center;padding:34px 0 46px;color:var(--muted);font-size:12.5px;font-weight:300}
+.foot span{color:var(--primary);font-weight:600}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.scroll-hint{animation:none}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="logo">
+      <svg viewBox="0 0 120 110" fill="none">
+        <path d="M10 8h78a8 8 0 0 1 8 8v52a8 8 0 0 1-8 8H40l-18 20v-20h-12a8 8 0 0 1-8-8V16a8 8 0 0 1 8-8z" fill="#0F6B62"/>
+        <path d="M58 44h52a8 8 0 0 1 8 8v40a8 8 0 0 1-8 8H94v18l-16-18H58a8 8 0 0 1-8-8V52a8 8 0 0 1 8-8z" fill="#E0A33E"/>
+      </svg>
+      <span>تبادل</span>
+    </div>
+    <h1>خبرة حقيقية،<br><span class="hl">وجهاً لوجه.</span></h1>
+    <p class="lead">لقاءات معرفية صغيرة — خمسة مقاعد فقط — تجمعك بصاحب خبرة حقيقية وبأشخاص يشاركونك الاهتمام، في مكان عام بالكويت.</p>
+    <div class="seats">
+      <span class="seat on"></span><span class="seat on"></span><span class="seat on"></span><span class="seat gold"></span><span class="seat"></span>
+    </div>
+    <div class="scroll-hint">اسحب لأسفل ↓</div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="wrap reveal">
+    <div class="eyebrow">المشكلة</div>
+    <h2>نتواصل أكثر… ونلتقي أقل.</h2>
+    <p class="lead">صار عندنا آلاف المتابعين، وقليل من اللقاءات الحقيقية. نبي نتعلّم من ناس عاشوا التجربة، ونوسّع دائرتنا بأشخاص يشبهوننا — بس وين؟</p>
+    <div class="pain"><div class="x">✕</div><p><b>الفعاليات الكبيرة</b> باردة وبعيدة، ما تقدر تسأل المتحدث سؤالك.</p></div>
+    <div class="pain"><div class="x">✕</div><p><b>مجموعات الواتساب</b> سطحية، ونادراً تتحوّل للقاء على أرض الواقع.</p></div>
+    <div class="pain"><div class="x">✕</div><p><b>دائرتك الحالية</b> مغلقة — صعب تتعرّف على وجوه جديدة بنفس اهتمامك.</p></div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="sol">
+  <div class="wrap reveal">
+    <div class="eyebrow">الحل</div>
+    <h2>تبادل يجمع <span class="hl">الأربعة</span> اللي ما تلقاها مع بعض.</h2>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5M16 6.5a3 3 0 0 1 0 5M22 20c0-2-1.5-3.5-4-4.3"/></svg></div>
+        <div><h3>قُرب حقيقي</h3><p>خمسة أشخاص فقط حول طاولة — لقاء مثمر وبناء، مو قاعة كبيرة.</p></div>
+      </div>
+      <div class="pillar">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7z"/><path d="m9 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div><h3>أمان واحترام</h3><p>توثيق هوية، أماكن عامة، وضوابط واضحة لكل جلسة.</p></div>
+      </div>
+      <div class="pillar">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 7v6c0 5 9 9 9 9s9-4 9-9V7z"/><circle cx="12" cy="11" r="2.5"/></svg></div>
+        <div><h3>اهتمام مشترك</h3><p>تختار الموضوع اللي يهمّك، وتلقى ناس يشاركونك الشغف.</p></div>
+      </div>
+      <div class="pillar">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg></div>
+        <div><h3>سمعة تبني الثقة</h3><p>تقييم بعد كل لقاء — الجادّون يبرزون، والتجربة ترتقي.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="how">
+  <div class="wrap reveal">
+    <h2>كيف يشتغل؟</h2>
+    <p class="sub">ثلاث خطوات، وأنت في اللقاء.</p>
+    <div class="step"><div class="n">١</div><div><h3>تصفّح الجلسات</h3><p>شوف لقاءات قريبة منك حسب اهتمامك — سفر، أعمال، تربية، صحة وغيرها.</p></div></div>
+    <div class="step"><div class="n">٢</div><div><h3>اطلب الانضمام</h3><p>اختر جلستك واطلب مقعدك. المضيف يقبلك، والمقاعد تمتلئ عند خمسة.</p></div></div>
+    <div class="step"><div class="n">٣</div><div><h3>احضر وتبادل</h3><p>اجلس وجهاً لوجه، تعلّم، تعرّف، واخرج بخبرة وأصدقاء جدد.</p></div></div>
+  </div>
+</section>
+
+<!-- SAFETY -->
+<section class="safe">
+  <div class="wrap reveal">
+    <div class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7z"/><path d="m9 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h2>مساحة آمنة ومحترمة</h2>
+    <p class="lead">تبادل مبني على الثقة منذ أول لحظة. كل جلسة تحدّد نوعها بوضوح، وأنت تختار ما يناسبك.</p>
+    <div class="chips">
+      <span class="chip">جلسات <b>رجالية</b></span>
+      <span class="chip">جلسات <b>نسائية</b></span>
+      <span class="chip">جلسات <b>مختلطة</b> بضوابط</span>
+      <span class="chip">أماكن <b>عامة</b> فقط</span>
+      <span class="chip">توثيق <b>الهوية</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="who">
+  <div class="wrap reveal">
+    <h2>سواء عندك ما <span class="hl">تشاركه</span>، أو تبي ما <span class="hl">تتعلّمه</span></h2>
+    <div class="cards2">
+      <div class="who-card host">
+        <div class="tag">للمضيف</div>
+        <h3>عندك تجربة تستحق المشاركة؟</h3>
+        <p>استضِف جلستك، شارك خبرتك مع مجموعة مهتمّة فعلاً، وابنِ تأثيراً وسمعة حقيقية.</p>
+      </div>
+      <div class="who-card guest">
+        <div class="tag">للحاضر</div>
+        <h3>تبي تتعلّم من إنسان حقيقي؟</h3>
+        <p>اقعد مع صاحب الخبرة عن قرب، اسأل أسئلتك، وكوّن صداقات بنفس اهتمامك.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap reveal">
+    <div class="eyebrow">انضم الآن</div>
+    <h2>مقعدك في الانتظار.<br><span class="hl">خمسة فقط لكل لقاء كحد أعلى، وممكن أقل.</span></h2>
+    <p class="lead">كن من أوائل من يجرّب تبادل في الكويت. سجّل، اختر جلستك، والتقِ بناس حقيقيين.</p>
+    <a class="btn" href="#" id="cta-link">
+      ابدأ الآن
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    </a>
+    <p class="note">مجاني تماماً · باللغة العربية · في الكويت</p>
+    <div class="seats">
+      <span class="seat on"></span><span class="seat on"></span><span class="seat on"></span><span class="seat on"></span><span class="seat gold"></span>
+    </div>
+  </div>
+</section>
+
+<div class="foot"><span>تبادل</span> — خبرة حقيقية، وجهاً لوجه.</div>
+
+<script>
+  // ضع رابط تطبيقك هنا
+  var APP_URL = "https://tabadolapp.lovable.app";
+  document.getElementById('cta-link').setAttribute('href', APP_URL);
+
+  // كشف العناصر عند التمرير
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:0.18});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
